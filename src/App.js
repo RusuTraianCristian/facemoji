@@ -4,7 +4,9 @@ import * as faceapi from 'face-api.js';
 
 const App = () => {
     const [expressions, setExpressions] = useState({});
+    // de-structuring state for ease of use and convenience
     const { neutral, happy, sad, angry, fearful, disgusted, surprised } = expressions;
+    // use refs to prevent direct state mutations and have a reference point
     const exp = useRef(0);
     let currentExp = exp.current;
     const getExpressions = () => {
@@ -31,10 +33,12 @@ const App = () => {
                     setInterval(async () => {
                         const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions())
                         .withFaceLandmarks().withFaceExpressions();
+                        // handling error to prevent error boundary development overlay from displaying
                         if (!detections[0]) {
                             console.log("No detections found.");
                         } else {
                             currentExp = detections[0].expressions;
+                            // mutate state via refs and get frontend changes instantly
                             getExpressions();
                         }
                     }, 300)
@@ -45,6 +49,7 @@ const App = () => {
     }
 
     useEffect(() => {
+        // fetches models on initial component render and starts camera afterwards (thenable)
         myPromises();
     }, []);
 
