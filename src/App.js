@@ -11,6 +11,7 @@ const App = () => {
         setExpressions(currentExp);
     }
 
+    // assuming your models are located in /public/models
     const myPromises = async () => {
         await Promise.all([
             faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
