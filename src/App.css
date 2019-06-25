@@ -1,0 +1,38 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: black;
+    color: #25954b;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#video {
+    width: 500px;
+}
+
+.overlay {
+    background: white;
+    width: 366px;
+    height: 366px;
+    border-radius: 50%;
+    float: right;
+    border: 6px solid #72cb4e;
+}
+
+.results {
+    
+    padding: 20px 0;
+    border-radius: 20px;
+    background: #72cb4e;
+    color: black;
+}
+
+.results div {
+    width: 100%;
+    text-align: center;
+    padding-top: 10px
+}
