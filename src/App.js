@@ -35,7 +35,7 @@ const App = () => {
                         .withFaceLandmarks().withFaceExpressions();
                         // handling error to prevent error boundary development overlay from displaying
                         if (!detections[0]) {
-                            console.log("No detections found.");
+                            console.log("No detections.");
                         } else {
                             currentExp = detections[0].expressions;
                             // mutate state via refs and get frontend changes instantly
@@ -60,15 +60,14 @@ const App = () => {
             autoPlay={true}
             muted={true}>
             </video>
-            <div className="overlay"></div>
             <div className="results">
-                <div>Neutral: {Math.round(neutral)}</div>
-                <div>Happy: {Math.round(happy)}</div>
-                <div>Sad: {Math.round(sad)}</div>
-                <div>Angry: {Math.round(angry)}</div>
-                <div>Fearful: {Math.round(fearful)}</div>
-                <div>Disgusted: {Math.round(disgusted)}</div>
-                <div>Surprised: {Math.round(surprised)}</div>
+                <div>Neutral: { Math.round(neutral) }</div>
+                <div>Happy: { Math.round(happy) }</div>
+                <div>Sad: { Math.round(sad) }</div>
+                <div>Angry: { Math.round(angry) }</div>
+                <div>Fearful: { Math.round(fearful) }</div>
+                <div>Disgusted: { Math.round(disgusted) }</div>
+                <div>Surprised: { Math.round(surprised) }</div>
             </div>
         </Fragment>
     );
